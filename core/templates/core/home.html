@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Coronagraph</title>
+</head>
+
+<header class="text-center">
+        <div class="border border-dark" style="background-color:#4d6d8b;">
+            <h1 style="font-size:2.5rem; color:rgb(235, 226, 226)">CORONAGRAPH</h1>
+            <h2 style="font-size:0.8rem; color:rgb(202, 194, 194)">Gráficos diarios del Coronavirus en Chile</h2>
+        </div>
+    </header>
+
+<body class="mb-5">
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="navbar-collapse collapse w-100 order-1 dual-collapse2">
+            <div class="mx-auto">
+                <ul class="navbar-nav mx-0">
+                    <li class="nav-item col-lg-6">
+                        <a class="nav-link" href="{% url 'chile' %}">Chile</a>
+                    </li>
+                    <li class="nav-item col-lg-auto">
+                        <a class="nav-link" href="{% url 'regiones' %}">Regiones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <div class="border text-center pt-2">
+        <div class="container">
+            <div class="row">
+                <div class="mx-auto">
+                    <h1 style="font-size:2.8rem; margin-bottom: 0px; color:rgb(236, 234, 100)">1142</h1>
+                    <h4 style="font-size:0.8rem;">INFECTADOS</h4>
+                </div>
+                <div class="mx-auto">
+                    <h1 style="font-size:2.8rem; margin-bottom: 0px; color:rgb(161, 204, 142)">17</h1>
+                    <h4 style="font-size:0.8rem;">RECUPERADOS</h4>
+                </div>
+                <div class="mx-auto">
+                    <h1 style="font-size:2.8rem; margin-bottom: 0px; color:rgb(212, 112, 66)">3</h1>
+                    <h4 style="font-size:0.8rem;">FALLECIDOS</h4>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-0 border h-100" style="background-color: rgb(231, 231, 231);">
+        <div class="d-flex border justify-content-center text-center">
+            <img src="/plot/" class="img-fluid border mt-3 " width="700px" height="700px" />
+        </div>
+        <div class="container border d-flex " style="max-width: 600px;">
+            <div class="pt-2">
+                <p class="p-0 m-0" style="font-size:0.8em;">F = Factor de exposición, n = día enésimo, I = Infectados </p>
+                <p class="p-0 m-0" style="font-size:0.8rem;">F = I(n+1) &divide; I(n)</p>
+                <p class="p-0 m-0" style="font-size:0.8rem;">Fprom = (&sum; F)  &divide; n </p>
+            </div>
+        </div>
+        <div class="mx-auto border d-flex" style="max-width: 600px; min-height:200px;">
+            <div class="pt-2 col-lg-auto mr-auto">
+                CHILE
+                <p class="p-0 m-0" style="font-size:0.8em;">Fprom(Chile)= 1.23 </p>
+    
+            </div>
+            <div class="pt-2 col-lg-auto ml-auto">
+                WORLD'S TOP 5
+                <p class="p-0 m-0" style="font-size:0.8em;">Fprom(China)= 1.23 </p>
+                <p class="p-0 m-0" style="font-size:0.8em;">Fprom(Italia)= 1.11 </p>
+                <p class="p-0 m-0" style="font-size:0.8em;">Fprom(EEUU)= 1.15 </p>
+                <p class="p-0 m-0" style="font-size:0.8em;">Fprom(España)= 1.25 </p>
+                <p class="p-0 m-0" style="font-size:0.8em;">Fprom(Alemania)= 1.62 </p>
+    
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<div class="fixed-bottom">
+    <footer id="sticky-footer" class="pb-4" style="background-color: #404A50">
+        <div class="container text-center">
+          <small class="d-inline-block mr-2" style="color:white">&copy; Coronagraph 2020</small>
+          <small class="d-inline-block" style="font-size:0.5rem; color:white">Creado en Python 3.7 - Django 2.2 - Matplotlib 3.2 - Numpy 1.15 - Bootstrap 4</small>
+        </div>
+    </footer>
+</div>
+</html>

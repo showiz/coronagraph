@@ -10,16 +10,25 @@ from django.shortcuts import render
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 from random import sample
 
+from .models import Chile, Regions, Page, World
+
 # Import Numpy
 import numpy as np
 
 # Force Integer Axis
 from matplotlib.ticker import MaxNLocator
 
+def pagedata(request):
+    page = Page.objects.all()
+    return render(request, "core/base.html", {'page':page})
+
 
 
 def home(request):
-    return render(request, "core/home.html")
+    countries = World.objects.all()
+    chile = Chile.objects.all()
+    
+    return render(request, "core/home.html", {'countries':countries, 'chile':chile,})
 
 def plot(request):
     # Creamos los datos para representar en el gráfico
@@ -46,7 +55,7 @@ def plot(request):
     # Axes names
     axes.set_xlabel("Días")
     axes.set_ylabel("Contagiados")
-    axes.set_title("Gráfico de contagios CHILE")
+    axes.set_title("Gráfico de contagios en CHILE")
 
     # Grids
     plt.grid(axis='x', color='0.95')
@@ -83,7 +92,8 @@ def plot(request):
     return response
 
 def regiones(request):
-    return render(request, "core/regiones.html")
+    regions = Regions.objects.all()
+    return render(request, "core/regiones.html", {'regions':regions})
 
 def regions(request):
     '''objects = ('Python', 'C++', 'Java', 'Perl', 'Scala', 'Lisp')
@@ -96,11 +106,11 @@ def regions(request):
     plt.title('Programming language usage')'''
     # Creamos los datos para representar en el gráfico
     #x = np.arange(21)
-    y = ('Python', 'C++', 'Java', 'Perl', 'Scala', 'Metropolitana')
+    y = ('Aysén', 'Atacama', 'Ar y Par', 'Tarapacá', 'Los Rios', "O'Higgins", "Coquimbo", 'Magallanes', 'Antofagasta', 'Maule', 'Valparaíso','Los Lagos', 'Araucanía', 'Biobío', 'Ñuble', 'Metropolitana')
     #x = np.linspace(1, 22, 22, endpoint=True, dtype=None) 
-    x_val = [1,3,4,5,7,11]
-    #y_es = [166,228,282,401,525,674,1231,1695,2277,3146,5232,6391,7988,9942,11826,14769,18077,21571,25496,29909,35480]
-    #y_it = [2502,3089,3858,4636,5883,7375,9172,10149,12462,15113,17660,21157,24747,27980,31506,35713,41035,47021,53578,59138,63927]
+    x_val = [1,1,2,4,11,11,12,13,19,30,32,44,74,95,111,682]
+    
+    
 
    
     # Creamos una figura y le dibujamos el gráfico
@@ -126,7 +136,7 @@ def regions(request):
     #plt.grid(axis='y', color='0.95')
 
     # Legend
-    plt.legend(title='Parámetros:')
+    #plt.legend(title='Parámetros:')
 
     '''plt.subplot(2, 1, 1)
     plt.plot(x, y_cl, 'o--', label='Chile', color='r', alpha=1)

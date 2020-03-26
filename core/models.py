@@ -39,6 +39,7 @@ class World(models.Model):
 
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Última actualización")
+    
     class Meta:
         ordering = ('-prom_factor',)
 

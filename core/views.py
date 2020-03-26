@@ -34,8 +34,8 @@ def plot(request):
     # Creamos los datos para representar en el gráfico
     #x = np.arange(21)
     
-    x = np.linspace(1, 23, 23, endpoint=True, dtype=None) 
-    y_cl = [1,3,4,5,7,11,13,17,23,33,43,61,75,156,201,238,342,434,537,632,746,922,1142]
+    x = np.linspace(1, 24, 24, endpoint=True, dtype=None) 
+    y_cl = [1,3,4,5,7,11,13,17,23,33,43,61,75,156,201,238,342,434,537,632,746,922,1142, 1306]
     #y_es = [166,228,282,401,525,674,1231,1695,2277,3146,5232,6391,7988,9942,11826,14769,18077,21571,25496,29909,35480]
     #y_it = [2502,3089,3858,4636,5883,7375,9172,10149,12462,15113,17660,21157,24747,27980,31506,35713,41035,47021,53578,59138,63927]
 
@@ -108,7 +108,7 @@ def regions(request):
     #x = np.arange(21)
     y = ('Aysén', 'Atacama', 'Ar y Par', 'Tarapacá', 'Los Rios', "O'Higgins", "Coquimbo", 'Magallanes', 'Antofagasta', 'Maule', 'Valparaíso','Los Lagos', 'Araucanía', 'Biobío', 'Ñuble', 'Metropolitana')
     #x = np.linspace(1, 22, 22, endpoint=True, dtype=None) 
-    x_val = [1,1,2,4,11,11,12,13,19,30,32,44,74,95,111,682]
+    x_val = [1,2,3,5,13,14,14,19,20,31,44,60,109,111,114,746]
     
     
 

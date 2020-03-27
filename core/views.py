@@ -106,24 +106,43 @@ def regions(request):
     plt.title('Programming language usage')'''
     # Creamos los datos para representar en el gráfico
     #x = np.arange(21)
-    y = ('Atacama',
+    y = (
+'Atacama',
 'Aysén',
 'Arica y Parinacota',
 'Tarapacá',
 'Coquimbo',
 'O’Higgins',
+'Antofagasta',
 'Los Ríos',
 'Magallanes',
-'Antofagasta',
 'Maule',
 'Valparaíso',
 'Los Lagos',
 'Biobío',
 'Araucanía',
 'Ñuble',
-'Metropolitana')
+'Metropolitana',
+)
     #x = np.linspace(1, 22, 22, endpoint=True, dtype=None) 
-    x_val = [1,2,3,5,13,14,14,19,20,31,44,60,109,111,114,746]
+    x_val = [
+1,
+2,
+3,
+5,
+14,
+16,
+21,
+22,
+22,
+32,
+49,
+63,
+135,
+143,
+144,
+938,
+    ]
     
     
 

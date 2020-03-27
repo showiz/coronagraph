@@ -109,7 +109,7 @@ def regions(request):
     y = (
 'Atacama',
 'Aysén',
-'Arica y Parinacota',
+'Ar y Par',
 'Tarapacá',
 'Coquimbo',
 'O’Higgins',

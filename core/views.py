@@ -114,14 +114,14 @@ def regions(request):
 'Coquimbo',
 'O’Higgins',
 'Antofagasta',
-'Los Ríos',
 'Magallanes',
+'Los Ríos',
 'Maule',
 'Valparaíso',
 'Los Lagos',
 'Biobío',
-'Araucanía',
 'Ñuble',
+'Araucanía',
 'Metropolitana',
 )
     #x = np.linspace(1, 22, 22, endpoint=True, dtype=None) 
@@ -130,19 +130,18 @@ def regions(request):
 2,
 3,
 5,
-14,
-16,
-21,
-22,
-22,
-32,
-49,
-63,
-135,
-143,
-144,
-938,
-    ]
+15,
+20,
+25,
+26,
+27,
+37,
+71,
+93,
+151,
+172,
+177,
+1084]
     
     
 

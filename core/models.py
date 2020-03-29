@@ -14,10 +14,13 @@ class Links(models.Model):
 #---------REGION PAGE---------
 class Regions(models.Model):
     name = models.CharField(verbose_name="Nombre", max_length=254)
-    infected = models.CharField(verbose_name="Cant. Infectados", max_length=254)
+    infected = models.IntegerField(verbose_name="Cant. Infectados")
 
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Última actualización")
+
+    class Meta:
+        ordering = ('infected',)
 
     def __str__(self):
         return self.name 
@@ -29,6 +32,18 @@ class Chile(models.Model):
 
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Última actualización")
+
+    def __str__(self):
+        return self.name
+
+class ChileData(models.Model):
+    name = models.IntegerField(verbose_name="Datos de Chile")
+
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha creación")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Última actualización")
+
+    class Meta:
+        ordering = ('name',)
 
     def __str__(self):
         return self.name

@@ -18,6 +18,8 @@ import numpy as np
 # Force Integer Axis
 from matplotlib.ticker import MaxNLocator
 
+# Calling the database of Regions
+from core.models import Regions
 
 def pagedata(request):
     page = Page.objects.all()
@@ -31,14 +33,28 @@ def home(request):
     
     return render(request, "core/home.html", {'countries':countries, 'chile':chile,})
 
+
 def plot(request):
-    # Creamos los datos para representar en el gráfico
-    x = np.arange(27)
+    from core.models import ChileData
+    datos = ChileData.objects.all()
+    days = len(datos)
     
+    # x (axis) = Days 
+    x = np.arange(days)
+    
+    # y (axis) = Infected
+    y_cl = []
+    for i in datos:
+         y_cl.append(i.name)
+    print(y_cl)
+
     #x = np.linspace(1, 25, 25, endpoint=True, dtype=None) 
-    y_cl = [1,3,4,5,7,11,13,17,23,33,43,61,75,156,201,238,342,434,537,632,746,922,1142,1306,1610,1909,2139]
+    #y_cl = [1,3,4,5,7,11,13,17,23,33,43,61,75,156,201,238,342,434,537,632,746,922,1142,1306,1610,1909,2139]
     #y_es = [166,228,282,401,525,674,1231,1695,2277,3146,5232,6391,7988,9942,11826,14769,18077,21571,25496,29909,35480]
     #y_it = [2502,3089,3858,4636,5883,7375,9172,10149,12462,15113,17660,21157,24747,27980,31506,35713,41035,47021,53578,59138,63927]
+    
+    
+        
 
    
     # Creamos una figura y le dibujamos el gráfico
@@ -56,6 +72,8 @@ def plot(request):
     # Axes names
     axes.set_xlabel("Días")
     axes.set_ylabel("Contagiados")
+
+    # axes.set_yscale('log')
     axes.set_title("Gráfico de contagios en CHILE")
 
     # Grids
@@ -97,57 +115,23 @@ def regiones(request):
     return render(request, "core/regiones.html", {'regions':regions})
 
 def regions(request):
-    '''objects = ('Python', 'C++', 'Java', 'Perl', 'Scala', 'Lisp')
-    y_pos = np.arange(len(objects))
-    performance = [10,8,6,4,2,1]
-    
-    plt.barh(y_pos, performance, align='center', alpha=0.5)
-    plt.yticks(y_pos, objects)
-    plt.xlabel('Usage')
-    plt.title('Programming language usage')'''
+    regions = Regions.objects.all()
+
+    #AXIS
+    y = []
+    x = []
+    for i in regions:
+        y.append(i.name)
+    print(y)
+
+    for n in regions:
+        x.append(n.infected)
+    print(x)
+
+
     # Creamos los datos para representar en el gráfico
     #x = np.arange(21)
-    y = (
-'Atacama',
-'Aysén',
-'Arica y Parinacota',
-'Tarapacá',
-'Coquimbo',
-'O’Higgins',
-'Antofagasta',
-'Magallanes',
-'Los Ríos',
-'Maule',
-'Valparaíso',
-'Los Lagos',
-'Biobío',
-'Ñuble',
-'Araucanía',
-'Metropolitana',
-)
-    #x = np.linspace(1, 22, 22, endpoint=True, dtype=None) 
-    x_val = [
-2,
-2,
-4,
-6,
-18,
-21,
-27,
-39,
-40,
-42,
-80,
-104,
-185,
-197,
-205,
-1167,
-]
     
-    
-
-   
     # Creamos una figura y le dibujamos el gráfico
     f = plt.figure()
 
@@ -158,7 +142,7 @@ def regions(request):
     
 
     #plt.plot(x, y_val, 'o--', label='Chile',color='r', alpha=1)
-    plt.barh(y, x_val, align='center', alpha=0.5)
+    plt.barh(y, x, align='center', alpha=0.5)
 
 
     # Axes names

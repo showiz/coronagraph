@@ -18,6 +18,7 @@ import numpy as np
 # Force Integer Axis
 from matplotlib.ticker import MaxNLocator
 
+
 def pagedata(request):
     page = Page.objects.all()
     return render(request, "core/base.html", {'page':page})
@@ -32,10 +33,10 @@ def home(request):
 
 def plot(request):
     # Creamos los datos para representar en el gráfico
-    x = np.arange(26)
+    x = np.arange(27)
     
     #x = np.linspace(1, 25, 25, endpoint=True, dtype=None) 
-    y_cl = [1,3,4,5,7,11,13,17,23,33,43,61,75,156,201,238,342,434,537,632,746,922,1142,1306,1610,1909]
+    y_cl = [1,3,4,5,7,11,13,17,23,33,43,61,75,156,201,238,342,434,537,632,746,922,1142,1306,1610,1909,2139]
     #y_es = [166,228,282,401,525,674,1231,1695,2277,3146,5232,6391,7988,9942,11826,14769,18077,21571,25496,29909,35480]
     #y_it = [2502,3089,3858,4636,5883,7375,9172,10149,12462,15113,17660,21157,24747,27980,31506,35713,41035,47021,53578,59138,63927]
 
@@ -109,7 +110,7 @@ def regions(request):
     y = (
 'Atacama',
 'Aysén',
-'Ar y Par',
+'Arica y Parinacota',
 'Tarapacá',
 'Coquimbo',
 'O’Higgins',
@@ -126,22 +127,23 @@ def regions(request):
 )
     #x = np.linspace(1, 22, 22, endpoint=True, dtype=None) 
     x_val = [
-1,
 2,
-3,
-5,
-15,
-20,
-25,
-26,
+2,
+4,
+6,
+18,
+21,
 27,
-37,
-71,
-93,
-151,
-172,
-177,
-1084]
+39,
+40,
+42,
+80,
+104,
+185,
+197,
+205,
+1167,
+]
     
     
 

@@ -16,3 +16,6 @@ This program works with Matplotlib and NumPy libraries that generates an automat
 The main changes to affect is done in core/views.py in wich you put the data entracy for graphs.
 
 Written in Python 3.7 on Django 2.2.
+
+
+You can see the project in: https://coronagraph.pythonanywhere.com/
